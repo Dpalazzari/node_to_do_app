@@ -4,10 +4,10 @@ var app     = express();
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response){
-  response.sendFile(__dirname + '/index.html')
+  response.render('index');
 });
 app.get('/contact', function(request, response){
-  response.sendFile(__dirname + '/contact.html')
+  response.render('contact');
 });
 app.get('/profile/:name', function(request, response){
   var data = {age: 27, job: 'Web Developer', hobbies: ['eating', 'coding', 'kissing']};
