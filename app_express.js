@@ -1,14 +1,15 @@
 var express = require('express')
 var app     = express();
-var fs      = require('fs');
+
+app.set('view engine', 'ejs');
 
 app.get('/', function(request, response){
-  response.send('This is the homepage')
+  response.sendFile(__dirname + '/index.html')
 });
 app.get('/contact', function(request, response){
-  response.send("This is the contact page")
+  response.sendFile(__dirname + '/contact.html')
 });
 app.get('/profile/:name', function(request, response){
-  response.send('You requested to see profile with the name of ' + request.params.id);
+  response.send('You are viewing the profile of ' + request.params.name);
 });
 app.listen(3000);
