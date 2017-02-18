@@ -3,6 +3,9 @@ var app     = express();
 
 app.set('view engine', 'ejs');
 
+app.set('view engine', 'ejs');
+app.use('/assets', express.static('assets'));
+
 app.get('/', function(request, response){
   response.render('index');
 });
