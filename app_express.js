@@ -9,9 +9,11 @@ app.use('/assets', express.static('assets'));
 app.get('/', function(request, response){
   response.render('index');
 });
+
 app.get('/contact', function(request, response){
-  response.render('contact');
+  response.render('contact', {query_string: request.query});
 });
+
 app.get('/profile/:name', function(request, response){
   var data = {age: 27, job: 'Web Developer', hobbies: ['eating', 'coding', 'kissing']};
   response.render('profile', {person: request.params.name, data: data });
